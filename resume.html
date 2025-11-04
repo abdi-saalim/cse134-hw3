@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bubblegum+Sans&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+Bhaiksuki&family=Share+Tech&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <link rel="icon" href="./assets/images/portfolio.png">
   <title>Resume</title>
 </head>
 <body>
   <header>
-    <h1><strong>Resume</strong></h1>
-    <nav>
+    <h1 class="resume-header">Resume</h1>
+    <nav class="main-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -20,7 +23,18 @@
   </header>
 
   <main>
-    <iframe src="./assets/pdf/SaalimResume.pdf#toolbar=0&navpanes=0" width="700" height="800"></iframe>
+    <section id="resume-spacing">
+      <a class="resume-button" href="assets/pdf/SaalimResume.pdf" download target="_blank">Download Resume Here</a>
+    </section>
+    <img src="./assets/images/resumes.png" alt="Resume Image" class="resume-img">
   </main>
+
+  <footer class="footer">
+    <p><img src="./assets/logos/email.svg" class="icon" > saalimabdi23@gmail.com</p>
+    <p><img src="./assets/logos/phone.svg" class="icon"> 858-308-4454</p>
+    <p><img src="./assets/logos/location.svg" class="icon"> San Diego, CA</p>
+    <p>© 2025 Saalim Abdi</p>
+  </footer>
+  
 </body>
 </html>

@@ -1,10 +1,18 @@
 :root {
     --light-grey: #f2f2f2;
-    --bubble-hover: lightblue;
+    --hover-blue: color(display-p3 0.65 0.80 1);
+}
+
+/* Custom scrollbar (Baseline 2024 feature) */
+html {
+    scrollbar-color: #bcd8ff #e0e7ff; 
+    scrollbar-width: thin;          
+    scrollbar-gutter: stable;       
 }
 
 body{
-    background-color: var(--light-grey);
+    background-color: var(--light-grey, #ffffff);
+    min-height: 100dvh;
 }
 
 .footer {
@@ -28,13 +36,14 @@ body{
 
 .intro-header{
     text-align: center;
-    font-family:"Bubblegum Sans", Arial, sans-serif;
+    font-family:"Space Mono", Arial, sans-serif;
     margin-top: 25px;
 }
 
 .title{
     font-weight: bold;
     font-size: 2rem;
+    font-weight: 300;
 }
 
 .social-links {
@@ -86,18 +95,19 @@ body{
     text-decoration: none;
     color: black;
     font-weight: 600;
+    transition: background 0.3s ease;
 }
 
-.main-nav a:hover{
-    background: var(--bubble-hover);
+.main-nav :is(a:hover, a:focus) {
+    background: var(--hover-blue, lightblue);
 }
 
 /* CSS for Project Page */
 .project-header{
     text-align: center;
-    font-family:"Bubblegum Sans", Arial, sans-serif;
+    font-family:"Space mono", Arial, sans-serif;
     margin-bottom: 2rem;
-    text-decoration: underline;
+    font-weight: 300;
 }
 
 .projects-container {
@@ -146,8 +156,168 @@ body{
 }
 
 /* CSS for Resume Page */
+.resume-header{
+    text-align: center;
+    font-family:"Space Mono", Arial, sans-serif;
+    font-weight: 300;
+}
+
+.resume-button{
+    padding: 0.5rem 1.2rem;
+    background: white;
+    border: 2px solid gray;
+    border-radius: 50px;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.resume-button:hover{
+    background-color: lightblue;
+}
+
+#resume-spacing{
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.resume-img {
+    display: block;
+    margin: 0 auto;      
+    width: 38%;          
+    border: 2px solid gray;
+    border-radius: 10px;
+}
 
 /* CSS for Experience Page */
+#experience-header{
+    text-align: center;
+    font-family:"Space Mono", Arial, sans-serif;
+    font-weight: 300;
+}
+
+.experience-container {
+    padding: 1rem;
+}
+
+.experience{
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 1rem 2rem;
+    margin: 2rem;           
+    box-shadow: 0 0 10px gray;
+    max-width: 900px;          
+    background: white;           
+}
 
 /* CSS for About Page */
+.about-header{
+    text-align: center;
+    font-family:"Space Mono", Arial, sans-serif;
+    font-weight: 300;
+}
 
+.about-section{
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+    max-width: 1000px;
+}
+
+.about-section:has(img) {
+    border: 2px solid rgb(101, 101, 148);
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.about-img{
+    width: 100%;
+    border-radius: 10px;
+    max-width: 700px;
+}
+
+.about-list li{
+    margin-bottom: 0.5rem;
+}
+
+#about-paragraph{
+    max-width: 650px;
+}
+
+.extra{
+    font-size: 1.1rem;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+main {
+    animation: fadeIn 0.6s ease-in;
+}
+
+@media (max-width: 600px) {
+    .main-nav ul {
+        flex-wrap: wrap;
+        gap: 0.4rem;     
+        padding: 0 0.5rem;
+    }
+
+    .main-nav a {
+        padding: 0.4rem 0.8rem; 
+        font-size: 0.9rem;
+    }
+
+    .profile-img,
+    .about-img {
+        width: 65%;
+        max-width: 260px;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+
+    .center-card {
+        grid-column: auto;
+        width: 100%;
+    }
+
+    .resume-img {
+        width: 90%;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+    .projects-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .about-section {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+
+    .resume-img {
+        width: 70%;
+    }
+}
